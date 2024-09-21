@@ -2,27 +2,17 @@
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
-    <meta name='viewport" content="width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Binary Converter</title>
 </head>
 <body>
     <h1>Binary Number Converter</h1>
     <p>Enter a number:</p>
     <input type='number' id='numberInput' placeholder='Enter a number' />
-    <button onclick='convertToBinary()'>Convert to Binary</button>
+    <button id='convertButton'>Convert to Binary</button>
 
     <p id='binaryOutput'></p>
 
-    <script>
-        function convertToBinary() {
-            const number = document.getElementById('numberInput').value;
-            if (number === '') {
-                document.getElementById('binaryOutput').innerText = 'Please enter a valid number.';
-                return;
-            }
-            const binary = Number(number).toString(2);
-            document.getElementById('binaryOutput').innerText = `Binary: ${binary}`;
-        }
-    </script>
+    <script defer src='./index.js'></script>
 </body>
 </html>
