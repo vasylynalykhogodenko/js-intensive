@@ -12,6 +12,6 @@ function convertToBinary() {
     const numberToBinary = function (numericValue) {
         return numericValue.toString(2);
     }
-    //const binary = Number(number).toString(2);
+
     document.getElementById('binaryOutput').innerText = `Binary: ${numberToBinary(numericValue)}`;
 }
