@@ -1,30 +1,17 @@
-// Due to task used my own order
-window.alert = window.confirm;
-window.prompt = window.alert;
-window.confirm = window.prompt;
-
-// Example of window.alert = window.confirm;
-window.alert = function() {
-    let confirmed = window.confirm('Do you agree?');
-
-    window.prompt(`You responded: ${confirmed}. Enter something:`);
-};
-
-// Example of window.confirm = window.prompt;
-window.confirm = function() {
-    let input = window.prompt('Do you want to continue?');
-
-    window.alert(`User input: ${input}`);
-};
-
-// Example of window.prompt = window.alert;
+const originalAlert = window.alert;
+const originalConfirm = window.confirm;
 const originalPrompt = window.prompt;
 
-window.prompt = function(message) {
-    let result = originalPrompt(message || 'Enter a value:');
-
-    window.confirm(`You entered: ${result}`);
+window.alert = function(message) {
+    originalConfirm(message || 'Do you agree?');
 };
 
-// calling one of functions
+window.confirm = function(message) {
+    originalPrompt(message || 'Do you want to continue?');
+};
+
+window.prompt = function(message) {
+    originalAlert(message || 'Prompt: Enter a value:');
+};
+
 window.alert();
