@@ -53,16 +53,3 @@ class Calculator {
         return this.x / this.y;
     };
 };
-
-// Testing
-const c = new Calculator(1, 2);
-
-const logSumfn = c.logSum;
-const logMulfn = c.logMul;
-const logSubfn = c.logSub;
-const logDivfn = c.logDiv;
-
-console.log(logSumfn());  // 3
-console.log(logMulfn());  // 2
-console.log(logSubfn());  // -1
-console.log(logDivfn());  // 0.5
