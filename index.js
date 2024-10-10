@@ -6,6 +6,11 @@ class Calculator {
 
         this.x = x;
         this.y = y;
+
+        this.logSum = this.logSum.bind(this);
+        this.logMul = this.logMul.bind(this);
+        this.logSub = this.logSub.bind(this);
+        this.logDiv = this.logDiv.bind(this);
     };
 
     isValidNumber(num) {
@@ -47,13 +52,17 @@ class Calculator {
 
         return this.x / this.y;
     };
-
-    getBoundMethods() {
-        return {
-            logSum: this.logSum.bind(this),
-            logMul: this.logMul.bind(this),
-            logSub: this.logSub.bind(this),
-            logDiv: this.logDiv.bind(this),
-        };
-    };
 };
+
+// Testing
+const c = new Calculator(1, 2);
+
+const logSumfn = c.logSum;
+const logMulfn = c.logMul;
+const logSubfn = c.logSub;
+const logDivfn = c.logDiv;
+
+console.log(logSumfn());  // 3
+console.log(logMulfn());  // 2
+console.log(logSubfn());  // -1
+console.log(logDivfn());  // 0.5
