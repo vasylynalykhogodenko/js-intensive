@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+}
+
+#clickButton {
+    font-size: 15px;
+    color: #f1f1f1;
+    background-color: #2b3daf;
+    position: absolute;
+    border: none;
+    border-radius: 50px;
+    padding: 13px 25px;
+    cursor: pointer;
+}
