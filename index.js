@@ -8,6 +8,7 @@ class NodeElement {
 class LinkedList {
     constructor() {
       this.head = null;
+      this.tail = null;
       this.length = 0;
     }
 
@@ -16,14 +17,10 @@ class LinkedList {
 
       if (!this.head) {
         this.head = newNodeElement;
+        this.tail = newNodeElement;
       } else {
-        let currentElement = this.head;
-
-        while (currentElement.next) {
-          currentElement = currentElement.next;
-        }
-
-        currentElement.next = newNodeElement;
+        this.tail.next = newNodeElement;
+        this.tail = newNodeElement;
       }
 
       this.length++;
@@ -37,6 +34,11 @@ class LinkedList {
       if (this.head.value === value) {
         this.head = this.head.next;
         this.length--;
+
+        if (!this.head) {
+          this.tail = null;
+        }
+
         return;
       }
 
@@ -50,7 +52,14 @@ class LinkedList {
 
       if (currentElement) {
         previousElement.next = currentElement.next;
+
+        if (!currentElement.next) {
+          this.tail = previousElement;
+        }
+
         this.length--;
+      } else {
+        console.log('No value found');
       }
     }
 
@@ -68,19 +77,37 @@ class LinkedList {
       return false;
     }
 
-    convertToArray() {
+    getFirstNodeElement() {
+      if (this.head) {
+        return this.head.value;
+      } else {
+        return null;
+      }
+    }
+
+    getLastNodeElement() {
+      if (this.tail) {
+        return this.tail.value;
+      } else {
+        return null;
+      }
+    }
+
+    showAllElements() {
       let currentElement = this.head;
-      const result = [];
 
       while (currentElement) {
-        result.push(currentElement.value);
         currentElement = currentElement.next;
       }
-
-      return result;
     }
 
     listLength() {
       return this.length;
+    }
+
+    clearList() {
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
     }
 }
